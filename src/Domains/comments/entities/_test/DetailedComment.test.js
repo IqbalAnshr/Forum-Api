@@ -20,6 +20,7 @@ describe('a DetailedComment entities', () => {
       id: 'comment-123',
       username: 'dicoding',
       content: 123,
+      likeCount: 3,
       date: '2021-08-08T07:19:09.775Z',
       deleted_at: null,
       replies: '[]',
@@ -35,6 +36,7 @@ describe('a DetailedComment entities', () => {
       id: 'comment-123',
       username: 'dicoding',
       content: 'dicoding',
+      likeCount: 3,
       date: '2021-08-08T07:19:09.775Z',
       deleted_at: null,
       replies: [],
@@ -42,13 +44,14 @@ describe('a DetailedComment entities', () => {
 
     // Action
     const {
-      id, username, content, date, replies,
+      id, username, content, likeCount, date, replies,
     } = new DetailedComment(payload);
 
     // Assert
     expect(id).toEqual(payload.id);
     expect(username).toEqual(payload.username);
     expect(content).toEqual(payload.content);
+    expect(likeCount).toEqual(payload.likeCount);
     expect(date).toEqual(payload.date);
     expect(replies).toEqual(payload.replies);
   });
@@ -59,6 +62,7 @@ describe('a DetailedComment entities', () => {
       id: 'comment-123',
       username: 'dicoding',
       content: 'original content',
+      likeCount: 3,
       date: '2021-08-08T07:19:09.775Z',
       deleted_at: '2021-08-09T10:00:00.000Z',
       replies: [],

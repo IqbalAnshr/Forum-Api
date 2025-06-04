@@ -197,6 +197,7 @@ describe('CommentRepositoryPostgres', () => {
         id: 'comment-123',
         username: 'dicoding',
         content: 'first comment',
+        likeCount: 0,
         date: '2025-04-24T12:26:22.454Z',
         deleted_at: null,
       });
@@ -204,6 +205,7 @@ describe('CommentRepositoryPostgres', () => {
         id: 'comment-456',
         username: 'dicoding',
         content: 'second comment',
+        likeCount: 0,
         date: '2025-04-24T12:26:26.451Z',
         deleted_at: null,
       });
@@ -241,6 +243,7 @@ describe('CommentRepositoryPostgres', () => {
         id: 'comment-123',
         username: 'dicoding',
         content: 'deleted comment',
+        likeCount: 0,
         date: '2025-04-24T12:26:22.454Z',
         deleted_at: '2025-04-24T12:26:22.454Z',
       });
