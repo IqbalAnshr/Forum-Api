@@ -29,6 +29,15 @@ const CommentLikeTableTestHelper = {
   async cleanTable() {
     await pool.query('DELETE FROM comment_likes WHERE 1=1');
   },
+
+  async findCommentLikeByUserAndComment(userId, commentId) {
+    const query = {
+      text: 'SELECT * FROM comment_likes WHERE user_id = $1 AND comment_id = $2',
+      values: [userId, commentId],
+    };
+    const result = await pool.query(query);
+    return result.rows;
+  },
 };
 
 module.exports = CommentLikeTableTestHelper;
