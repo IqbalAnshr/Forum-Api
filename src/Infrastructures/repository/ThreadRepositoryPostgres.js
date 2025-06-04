@@ -25,7 +25,7 @@ class ThreadRepositoryPostgres extends ThreadRepository {
       throw new InvariantError('thread gagal ditambahkan');
     }
 
-    return new AddedThread({ ...result.rows[0] });
+    return new AddedThread(result.rows[0]);
   }
 
   async verifyIsThreadExist(threadId) {

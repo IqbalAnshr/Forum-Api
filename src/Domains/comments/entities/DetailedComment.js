@@ -4,13 +4,14 @@ class DetailedComment {
     this._validate(payload);
 
     const {
-      id, username, content, date, deleted_at, replies,
+      id, username, content, date, deleted_at, replies, likeCount,
     } = payload;
 
     this.id = id;
     this.username = username;
     this.content = deleted_at ? '**komentar telah dihapus**' : content;
     this.date = date;
+    this.likeCount = likeCount;
     this.replies = replies;
   }
 
@@ -21,6 +22,7 @@ class DetailedComment {
             || !payload.username
             || !payload.content
             || !payload.date
+            || !('likeCount' in payload)
             || !('deleted_at' in payload)
             || !('replies' in payload)
     ) {
@@ -32,6 +34,7 @@ class DetailedComment {
             || typeof payload.username !== 'string'
             || typeof payload.content !== 'string'
             || typeof payload.date !== 'string'
+            || typeof payload.likeCount !== 'number'
             || !Array.isArray(payload.replies)
             || (payload.deleted_at !== null
              && typeof payload.deleted_at !== 'string')
